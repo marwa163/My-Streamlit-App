@@ -1,10 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import chart_studio.plotly as py
-import plotly.figure_factory as ff
 import plotly.express as px
-import plotly.graph_objects as go
 st.set_page_config(
     page_title="My Streamlit App",
     page_icon=":bar_chart:",
@@ -96,4 +93,4 @@ hide_st_style = """
             header {visibility: hidden;}
             </style>
             """
-#st.markdown(hide_st_style, unsafe_allow_html=True)
+st.markdown(hide_st_style, unsafe_allow_html=True)
