@@ -53,7 +53,10 @@ with right_column:
     st.subheader("Average Growth Rate:")
     st.subheader(f"{Average_Growth_Rate} ") 
 st.markdown("""---""")
-
+st.subheader("Some Statistics:")
+st.write("Above are the averages of some of the features presented in the data, where we can see that the average life expectancy is 75 years, the average birth rate is 15, and the average groth rate is 0. You can filter years or countries if you are interested to see those averages in a specific year/country.")
+st.subheader("Data:")
+st.write("The dataset provides valuable insights into the demographic changes, health, and urbanization trends in some countries between the years 2017 and 2021. You can use the filters in the sidebar if you want to see specific year or country. Some of the values are None to indicate the absence of data for that specific value.")
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(df_selection)
@@ -70,7 +73,7 @@ fig = px.bar(
     template="plotly_white",
     title="Population Density per Country:")
 st.plotly_chart(fig)
-
+st.write("This bar chart shows the distribution of population density during the selected year. Population density is a measure of how many people live in a given country.The dataset didn't contain informatoin about the population density in 2021.That's why is is not included in the slider. One can notice that the population density of the countries shown in the chart didn't change much from 2017 to 2020.")
 # Load the external data source with iso_alpha codes
 iso_data = px.data.gapminder().query("year==2007")
 df = df.rename(columns={'Country': 'country'})#to be able to merge the two datasets
@@ -84,7 +87,8 @@ fig = px.choropleth(filtered_data2, locations="iso_alpha",
                     hover_name="country",
                     color_continuous_scale=px.colors.sequential.Plasma)
 st.plotly_chart(fig)
-
+st.write("The above map shows the distribution of the growth rate of some countries during the selected year. The growth rate signifies the annual rate at which the population of a specific country is changing.Each color represents a growth rate of a country. The growth rates are ranging from -5 to +5 where the negative numbers shows a decrease in the population, and the positive rate shows an increase in the population.")
+# hide streamlit style
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
             <style>
